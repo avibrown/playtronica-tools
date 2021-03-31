@@ -31,7 +31,8 @@ class UI(QtWidgets.QMainWindow):
 		self.load_sample_pack_button = self.findChild(QtWidgets.QPushButton, 'load_sample_pack_button')
 		self.tempo_label = self.findChild(QtWidgets.QLabel, 'tempo_label')
 		self.tempo_slider = self.findChild(QtWidgets.QSlider, 'tempo_slider')
-		self.metronome_radio_button = self.findChild(QtWidgets.QRadioButton, 'metronome_radio_button')
+		self.metronome_radio_button = self.findChild(QtWidgets.QCheckBox, 'metronome_radio_button')
+		self.quantize_radio_button = self.findChild(QtWidgets.QCheckBox, 'quantize_radio_button')
 		self.play_button = self.findChild(QtWidgets.QPushButton, 'playtronic_button')
 
 		self.tempo_slider.valueChanged.connect(self.tempo_value)
@@ -41,7 +42,8 @@ class UI(QtWidgets.QMainWindow):
 		self.show()
 	
 	def session_thread(self, *args, **kwargs):
-		thread = Worker(quantizer.Player, 
+		thread = Worker(quantizer.Player,
+						self.quantize_radio_button.isChecked(),
 						self.sample_pack_path,
 						self.metronome_radio_button.isChecked(), 
 						self.tempo_slider.value()

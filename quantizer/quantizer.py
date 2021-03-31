@@ -6,14 +6,14 @@ import time
 import os
 
 class Player():
-    def __init__(self, sample_pack_path, metronome=True, tempo=60):
+    def __init__(self, quantize=True, sample_pack_path=None, metronome=True, tempo=60):
         pygame.init()
         mixer.init()
         midi.quit()
         midi.init()
         mixer.set_num_channels(32)
 
-        self.state = True
+        self.quantize = quantize
 
         # Fetches Playtron from list of available MIDI input devices
         self.input = self.get_input()
@@ -39,25 +39,42 @@ class Player():
             if signal[0][0][0] == 144:
                 for note in signal:
                     self.samples[note[0][1]].play()
+    
+    def play_unquantized(self, samples):
+         if self.input.poll():
+            signal = self.input.read(1024)
+            if signal[0][0][0] == 144:
+                for note in signal:
+                    self.samples[note[0][1]].play()       
 
     def session(self, metronome, tempo):
         self.state = True
         midi.init()
-
         click = mixer.Sound('click.mp3')
         count = 4
-        while True:
-            if metronome:
-                if count % 4 == 1:
-                    click.play()
-            self.play(self.samples)
-            count += 1
-            time.sleep(tempo / 4)
 
-            if keyboard.is_pressed('space'):
-                midi.quit()
-                self.state = False
-                break
+        if self.quantize:
+            while True:
+                if metronome:
+                    if count % 4 == 1:
+                        click.play()
+                self.play(self.samples)
+                count += 1
+                time.sleep(tempo / 4)
+
+                if keyboard.is_pressed('space'):
+                    midi.quit()
+                    break
+
+        elif not self.quantize:
+            while True:
+                self.play_unquantized(self.samples)
+
+                if keyboard.is_pressed('space'):
+                    midi.quit()
+                    break
+
+
 
     @staticmethod
     def get_input():
