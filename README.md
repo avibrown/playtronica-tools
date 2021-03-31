@@ -11,3 +11,5 @@ The user should place (up to) 16 samples in the samples folder. The names are ir
 
 The samples will be loaded from the "bottom up", starting with the connection marked C1 and upward.
 Currently there is no support for specifying which connection will play a particular sample.
+
+Hit space at any time to exit session.
