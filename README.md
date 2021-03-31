@@ -41,5 +41,9 @@ Which can all be installed via `pip`.
 Either clone using Git or download `.zip` folder to your system.
 
 ## Run `main.py`
-Navigate to the host directory and run `main.py`. You should see the following interface:
-![Interface](https://i.imgur.com/lidBo84.png)
+Navigate to the host directory and run `main.py` (You can do this by opening command prompt and entering `python C:\path\to\host\directory\main.py`). You should see the following interface:
+
+![Interface](https://i.imgur.com/4YFQz9I.png)
+
+The app itself is incomplete, but should be enough to get you going.
+Please contact me with any issues.
