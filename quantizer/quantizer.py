@@ -1,4 +1,3 @@
-from playsound import playsound
 import pygame.mixer as mixer
 import pygame.midi as midi
 import pygame
