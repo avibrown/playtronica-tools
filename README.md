@@ -1,6 +1,6 @@
 # Background
 
-I recieved the (Playtron)[https://shop.playtronica.com/playtron] as a gift and quickly fell in love with the device. I noticed that the out-of-the-box MIDI synth solutions offered by the manufacturers didn't offer a very configurable interface- most notably the lack of a quantization option resulted in laggy, awkward beats when trying to play on tempo.
+I recieved the [Playtron](https://shop.playtronica.com/playtron) as a gift and quickly fell in love with the device. I noticed that the out-of-the-box MIDI synth solutions offered by the manufacturers were missing an option to quantize the device's MIDI signals, resulting in laggy, awkward beats when trying to play on tempo.
 
 I decided to have a crack at building a simple tool for loading samples and playing within quantized guardrails.
 
@@ -33,7 +33,7 @@ Hit space at any time to exit session.
 # How to Use
 
 ## Check requirements
-This has been tested on Windows 10 using (Python 3.9.2)["https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe"] but should work for other recent versions.
+This has been tested on Windows 10 using [Python 3.9.2](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) but should work for other recent versions.
 
 As for modules, you will need:
 ```
@@ -52,5 +52,20 @@ Navigate to the host directory and run `main.py` (You can do this by opening com
 
 ![Interface](https://i.imgur.com/4YFQz9I.png)
 
+## Load Sample Pack
+Click the "Load Sample Pack" button and navigate to a folder with 16 audio files (that end with `.mp3` or `.wav`). At the moment it needs to be 16 files, but if you have fewer than that just copy and paste them until you have 16. Ha.
+
+## Tempo
+Select your tempo in BPM.
+
+## Options
+Quantize and Metronome are selected by default. If you are inclined to go unquantized, the metronome will also be turned off (at the moment).
+
+## Play
+Hit play. When you're done be sure to hit 'space' confidently. :)
+
 The app itself is incomplete, but should be enough to get you going.
 Please contact me with any issues.
+
+# Demo Video
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ZQAUeBtWrj8/0.jpg)](https://www.youtube.com/watch?v=ZQAUeBtWrj8)
