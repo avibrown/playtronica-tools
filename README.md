@@ -1,6 +1,6 @@
 # Background
 
-I recieved the !(Playtron)[https://shop.playtronica.com/playtron] as a gift and quickly fell in love with the device. I noticed that the out-of-the-box MIDI synth solutions offered by the manufacturers didn't offer a very configurable interface- most notably the lack of a quantization option resulted in laggy, awkward beats when trying to play on tempo.
+I recieved the [Playtron](https://shop.playtronica.com/playtron) as a gift and quickly fell in love with the device. I noticed that the out-of-the-box MIDI synth solutions offered by the manufacturers didn't offer a very configurable interface- most notably the lack of a quantization option resulted in laggy, awkward beats when trying to play on tempo.
 
 I decided to have a crack at building a simple tool for loading samples and playing within quantized guardrails.
 
@@ -33,7 +33,7 @@ Hit space at any time to exit session.
 # How to Use
 
 ## Check requirements
-This has been tested on Windows 10 using (Python 3.9.2)["https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe"] but should work for other recent versions.
+This has been tested on Windows 10 using [Python 3.9.2]("https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe") but should work for other recent versions.
 
 As for modules, you will need:
 ```
