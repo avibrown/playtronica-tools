@@ -1,10 +1,15 @@
 # Background
+
 I recieved the (Playtron)[https://shop.playtronica.com/playtron] as a gift and quickly fell in love with the device. I noticed that the out-of-the-box MIDI synth solutions offered by the manufacturers didn't offer a very configurable interface- most notably the lack of a quantization option resulted in laggy, awkward beats when trying to play on tempo.
 
 I decided to have a crack at building a simple tool for loading samples and playing within quantized guardrails.
 
+
+
 # Features to come
 I will be adding an option for quickly packaging audio files into a new sample pack.
+
+
 
 # Quantizer
 
@@ -22,6 +27,8 @@ The samples will be loaded from the "bottom up", starting with the connection ma
 Currently there is no support for specifying which connection will play a particular sample.
 
 Hit space at any time to exit session.
+
+
 
 # How to Use
 
