@@ -33,7 +33,7 @@ Hit space at any time to exit session.
 # How to Use
 
 ## Check requirements
-This has been tested on Windows 10 using [Python 3.9.2]("https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe") but should work for other recent versions.
+This has been tested on Windows 10 using [Python 3.9.2](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) but should work for other recent versions.
 
 As for modules, you will need:
 ```
