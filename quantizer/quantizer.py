@@ -7,24 +7,31 @@ import time
 import os
 
 class Player():
-    def __init__(self, tempo=60, metronome=True):
+    def __init__(self, sample_pack_path, metronome=True, tempo=60):
         pygame.init()
         mixer.init()
         midi.quit()
         midi.init()
         mixer.set_num_channels(32)
 
+        self.state = True
+
         # Fetches Playtron from list of available MIDI input devices
         self.input = self.get_input()
 
         # Creates list of samples from folder "samples". Place up to 16 audio files (.mp3, .wav, etc.) in this folder.
-        self.samples = self.get_samples()
+        if sample_pack_path:
+            self.samples = self.get_samples(sample_pack_path)
+        else:
+            self.samples = self.get_samples('samples')
 
         # Tempo is passed to object in BPM, and here converted to value in seconds
-        self.tempo = round(tempo / 60, 1)
+        self.tempo = round(1 / (tempo / 60), 1)
 
-        # Initiates quantized session
-        self.session(tempo=self.tempo, metronome=metronome)
+        self.metronome = metronome
+
+        # Initialize session
+        self.session(metronome=self.metronome, tempo=self.tempo)
 
     def play(self, samples):
         # Checks if input has a reading, extracts the midi code(s) from note(s) in signal, and plays the note(s) 
@@ -34,12 +41,15 @@ class Player():
                 for note in signal:
                     self.samples[note[0][1]].play()
 
-    def session(self, tempo, metronome):
+    def session(self, metronome, tempo):
+        self.state = True
+        midi.init()
+
         click = mixer.Sound('click.mp3')
         count = 4
         while True:
-            if count % 4 == 1:
-                if metronome:
+            if metronome:
+                if count % 4 == 1:
                     click.play()
             self.play(self.samples)
             count += 1
@@ -47,6 +57,7 @@ class Player():
 
             if keyboard.is_pressed('space'):
                 midi.quit()
+                self.state = False
                 break
 
     @staticmethod
@@ -60,15 +71,15 @@ class Player():
                 return midi.Input(devices.index(device))
 
     @staticmethod
-    def get_samples():
+    def get_samples(sample_pack_path):
         samples = {}
-        files = [file for file in os.listdir('samples')]
+        files = [file for file in os.listdir(sample_pack_path)]
 
         # This index corresponds to the inidividual MIDI note values on the Playtronic - values from 36 to 51
         i = 36
         for file in files:
             if file.endswith('.mp3') or file.endswith('.wav'):
-                samples[i] = mixer.Sound(f'samples\\{file}')
+                samples[i] = mixer.Sound(f'{sample_pack_path}/{file}')
                 i += 1
             if i >= 52:
                 break
