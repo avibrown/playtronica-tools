@@ -57,6 +57,7 @@ class UI(QtWidgets.QMainWindow):
 		dialog = QtWidgets.QFileDialog(self)
 		folder = dialog.getExistingDirectory()
 		self.sample_pack_path = folder
+		self.load_sample_pack_button.setText(folder.split('/')[-1])
 
 
 if __name__ == '__main__':
