@@ -1,13 +1,13 @@
 # Background
 
-I recieved the [Playtron](https://shop.playtronica.com/playtron) as a gift and quickly fell in love with the device. I noticed that the out-of-the-box MIDI synth solutions offered by the manufacturers were missing an option to quantize the device's MIDI signals, resulting in laggy, awkward beats when trying to play on tempo.
+I recieved the [Playtron](https://shop.playtronica.com/playtron) as a gift and quickly fell in love with the device. I noticed that the out-of-the-box MIDI synth solutions offered by the manufacturers were missing an option to quantize the device's MIDI signals, often resulting in laggy, awkward beats when trying to play on tempo.
 
 I decided to have a crack at building a simple tool for loading samples and playing within quantized guardrails.
 
 
 
 # Features to come
-I will be adding an option for quickly packaging audio files into a new sample pack.
+I will be adding an option quickly package audio files into a new sample pack.
 
 
 
