@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5.QtCore import * 
 from PyQt5.QtGui import *
+from PyQt5.Qt import Qt
 import keyboard
 import sys
 import quantizer
@@ -47,8 +48,11 @@ class UI(QtWidgets.QMainWindow):
 						self.sample_pack_path,
 						self.metronome_radio_button.isChecked(), 
 						self.tempo_slider.value()
-						) 
+						)
 		self.threadpool.start(thread)
+		self.play_button.setEnabled(False)
+		self.load_sample_pack_button.setEnabled(False)
+		self.play_button.setText('R E A D Y')
 
 	def tempo_value(self):
 		self.tempo_label.setText(f'Tempo: {self.tempo_slider.value()}')
@@ -58,6 +62,12 @@ class UI(QtWidgets.QMainWindow):
 		folder = dialog.getExistingDirectory()
 		self.sample_pack_path = folder
 		self.load_sample_pack_button.setText(folder.split('/')[-1])
+
+	def keyPressEvent(self, event):
+		if event.key() == Qt.Key_Space:
+			self.play_button.setEnabled(True)
+			self.play_button.setText('P L A Y T R O N')
+			self.load_sample_pack_button.setEnabled(True)
 
 
 if __name__ == '__main__':

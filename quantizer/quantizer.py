@@ -1,7 +1,8 @@
 import pygame.mixer as mixer
 import pygame.midi as midi
-import pygame
 import keyboard
+import threading
+import pygame
 import time
 import os
 
@@ -13,7 +14,12 @@ class Player():
         midi.init()
         mixer.set_num_channels(32)
 
+        self.state = True
+
+
         self.quantize = quantize
+        quit_thread = threading.Thread(target=self.quit)
+        quit_thread.start()
 
         # Fetches Playtron from list of available MIDI input devices
         self.input = self.get_input()
@@ -45,7 +51,7 @@ class Player():
             signal = self.input.read(1024)
             if signal[0][0][0] == 144:
                 for note in signal:
-                    self.samples[note[0][1]].play()       
+                    self.samples[note[0][1]].play()    
 
     def session(self, metronome, tempo):
         self.state = True
@@ -54,7 +60,7 @@ class Player():
         count = 4
 
         if self.quantize:
-            while True:
+            while self.state:
                 if metronome:
                     if count % 4 == 1:
                         click.play()
@@ -62,18 +68,16 @@ class Player():
                 count += 1
                 time.sleep(tempo / 4)
 
-                if keyboard.is_pressed('space'):
-                    midi.quit()
-                    break
-
         elif not self.quantize:
-            while True:
+            while self.state:
                 self.play_unquantized(self.samples)
 
-                if keyboard.is_pressed('space'):
-                    midi.quit()
-                    break
-
+    def quit(self):
+        while True:
+            if keyboard.is_pressed('space'):
+                self.state = False
+                midi.quit()
+            time.sleep(0.05)
 
 
     @staticmethod
