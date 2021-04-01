@@ -69,4 +69,4 @@ The app itself is incomplete, but should be enough to get you going.
 Please contact me with any issues.
 
 # Demo Video
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ZQAUeBtWrj8/0.jpg)](https://www.youtube.com/watch?v=ZQAUeBtWrj8)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/t6bMnLYBCv8/0.jpg)](https://www.youtube.com/watch?v=t6bMnLYBCv88)
