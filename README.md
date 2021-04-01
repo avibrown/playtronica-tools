@@ -7,7 +7,7 @@ I decided to have a crack at building a simple tool for loading samples and play
 
 
 # Features to come
-I will be adding an option for quickly packaging audio files into a new sample pack.
+I will be adding an option quickly package audio files into a new sample pack.
 
 
 
