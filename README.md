@@ -16,9 +16,10 @@ I will be adding an option for quickly packaging audio files into a new sample p
 This class enables the user to apply (albeit rough) quantization to the signals received from their Playtronica "Playtron" device.
 The user may pass the following arguments to the `Player` class:
 ```
-tempo <-- tempo in BPM (60 is passed by default)
-metronome <-- Boolean value indicating whether to play a metronome click at the start of every measure (True by default)
-sample_pack_path <-- If no sample pack is chosen via "Load Sample Pack", the default will be a folder called "samples" in the main directory
+tempo             # tempo in BPM (60 is passed by default)
+metronome         # Boolean value indicating whether to play a metronome click at the start of every measure (True by default)
+sample_pack_path  # If no sample pack is chosen via "Load Sample Pack", the default will be a folder called "samples" in the main directory
+quantize          # Boolean value indicating whether to quantize or not
 ```
 
 The user should place (up to) 16 samples in the samples folder. The names are irrelevant, as long as the file types are `.mp3` or `.wav`.
