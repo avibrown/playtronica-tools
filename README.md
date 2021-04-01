@@ -34,7 +34,7 @@ Hit space at any time to end session.
 # How to Use
 
 ## Check requirements
-This has been tested on Windows 10 using [Python 3.9.2](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) but should work for other recent versions.
+This has been tested on Windows 10 and Mac OS 10.12.6 using [Python 3.9.2](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) but should work for other recent versions.
 
 As for modules, you will need:
 ```
@@ -49,7 +49,9 @@ Which can all be installed via `pip`.
 Either clone using Git or download `.zip` folder to your system.
 
 ## Run `main.py`
-Navigate to the host directory and run `main.py` (You can do this by opening command prompt and entering `python C:\path\to\host\directory\main.py`). You should see the following interface:
+Navigate to the host directory and run using `python main.py` (You can do this by opening command prompt and entering `python C:\path\to\host\directory\main.py`). You should see the interface below.
+
+NOTE that on Mac you may need to run as administrator using `sudo python3 main.py`
 
 ![Interface](https://i.imgur.com/hSzlhde.png)
 
