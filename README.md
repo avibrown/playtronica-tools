@@ -22,12 +22,12 @@ sample_pack_path  # If no sample pack is chosen via "Load Sample Pack", the defa
 quantize          # Boolean value indicating whether to quantize or not
 ```
 
-The user should place (up to) 16 samples in the samples folder. The names are irrelevant, as long as the file types are `.mp3` or `.wav`.
+The user should place 16 samples in the samples folder. The names are irrelevant, as long as the file types are `.mp3` or `.wav`.
 
 The samples will be loaded from the "bottom up", starting with the connection marked C1 and upward.
 Currently there is no support for specifying which connection will play a particular sample.
 
-Hit space at any time to exit session.
+Hit space at any time to end session.
 
 
 
