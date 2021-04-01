@@ -16,11 +16,11 @@ class Player():
         self.tempo = round(1 / (tempo / 60), 1)
         self.samples = pt.Samples.get_samples(sample_pack_path)
 
-        pygame.init()
+        print(self.samples)
 
+        pygame.init()
         mixer.init()
         mixer.set_num_channels(32)
-
         midi.init()
 
         quit_thread = threading.Thread(target=self.quit)
@@ -68,19 +68,6 @@ class Player():
                 midi.quit()
             time.sleep(0.05)
 
-    # @staticmethod
-    # def get_samples(sample_pack_path):
-    #     samples = {}
-    #     files = [file for file in os.listdir(sample_pack_path)]
-
-    #     i = 36
-    #     for file in files:
-    #         if file.endswith('.mp3') or file.endswith('.wav'):
-    #             samples[i] = mixer.Sound(f'{sample_pack_path}/{file}')
-    #             i += 1
-    #         if i >= 52:
-    #             break
-    #     return samples
 
 if __name__ == "__main__":
     play = Player()

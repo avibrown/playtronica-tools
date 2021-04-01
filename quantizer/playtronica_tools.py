@@ -29,21 +29,26 @@ class Samples:
     def get_samples(sample_pack_path):
         mixer.init()
         samples = {}
-        files = [file for file in os.listdir(sample_pack_path)]
 
-        # "Fluffs" sample pack to 16 files if there are too few
-        if not len(files) == 16:
-            last = files.index(files[-1])
-            for i in range(last + 1, 17):
-                files.append(files[last])
+        if sample_pack_path:
+            files = [file for file in os.listdir(sample_pack_path)]
 
-        # The Playtron sends MIDI codes between 36-51
-        i = 36
-        for file in files:
-            if file.endswith('.mp3') or file.endswith('.wav'):
-                samples[i] = mixer.Sound(f'{sample_pack_path}/{file}')
-                i += 1
-            if i >= 52:
-                break
+            # "Fluffs" sample pack to 16 files if there are too few
+            if not len(files) == 16:
+                last = files.index(files[-1])
+                for i in range(last + 1, 17):
+                    files.append(files[last])
 
-        return samples
+            # The Playtron sends MIDI codes between 36-51
+            i = 36
+            for file in files:
+                if file.endswith('.mp3') or file.endswith('.wav'):
+                    samples[i] = mixer.Sound(f'{sample_pack_path}/{file}')
+                    i += 1
+                if i >= 52:
+                    break
+
+            return samples
+
+        else:
+            return None

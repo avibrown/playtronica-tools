@@ -43,16 +43,21 @@ class UI(QtWidgets.QMainWindow):
 		self.show()
 	
 	def session_thread(self, *args, **kwargs):
-		thread = Worker(quantizer.Player,
-						self.quantize_radio_button.isChecked(),
-						self.sample_pack_path,
-						self.metronome_radio_button.isChecked(), 
-						self.tempo_slider.value()
-						)
-		self.threadpool.start(thread)
-		self.play_button.setEnabled(False)
-		self.load_sample_pack_button.setEnabled(False)
-		self.play_button.setText('R E A D Y')
+		if self.sample_pack_path:
+			thread = Worker(quantizer.Player,
+							self.quantize_radio_button.isChecked(),
+							self.sample_pack_path,
+							self.metronome_radio_button.isChecked(), 
+							self.tempo_slider.value()
+							)
+			self.threadpool.start(thread)
+			self.play_button.setEnabled(False)
+			self.load_sample_pack_button.setEnabled(False)
+			self.play_button.setText('R E A D Y')
+		else:
+			error_dialog = QtWidgets.QErrorMessage()
+			error_dialog.showMessage('Please load a sample pack using the SAMPLES button :)')
+			error_dialog.exec_()
 
 	def tempo_value(self):
 		self.tempo_label.setText(f'Tempo: {self.tempo_slider.value()}')
