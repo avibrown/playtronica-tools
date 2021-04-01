@@ -48,6 +48,7 @@ class Player():
                     self.samples[note[0][1]].play()       
 
     def session(self, metronome, tempo):
+        self.state = True
         midi.init()
         click = mixer.Sound('click.mp3')
         count = 4

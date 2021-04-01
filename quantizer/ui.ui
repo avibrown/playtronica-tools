@@ -10,13 +10,31 @@
     <height>343</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>UpArrowCursor</cursorShape>
+  </property>
   <property name="windowTitle">
-   <string>PLAYTRONIC</string>
+   <string>PLAYTRON</string>
   </property>
   <property name="windowOpacity">
-   <double>0.990000000000000</double>
+   <double>0.980000000000000</double>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget
+{
+background-color: #f4f4f6
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <family>MS Serif</family>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
    <widget class="QPushButton" name="load_sample_pack_button">
     <property name="geometry">
      <rect>
@@ -26,11 +44,22 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>8514oem</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+color: #09369e;}</string>
+    </property>
     <property name="text">
-     <string>Load Sample Pack</string>
+     <string>S A M P L E S</string>
     </property>
    </widget>
    <widget class="QLabel" name="tempo_label">
@@ -42,8 +71,13 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>8514oem</family>
+     </font>
+    </property>
     <property name="text">
-     <string>Tempo: 30</string>
+     <string>TEMPO: 60</string>
     </property>
    </widget>
    <widget class="QSlider" name="tempo_slider">
@@ -64,6 +98,9 @@
     <property name="maximum">
      <number>240</number>
     </property>
+    <property name="value">
+     <number>60</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -83,17 +120,22 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>8514oem</family>
+     </font>
+    </property>
     <property name="text">
-     <string>Metronome Sound:</string>
+     <string>CLICK:</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="metronome_radio_button">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>130</y>
+      <x>330</x>
+      <y>140</y>
       <width>31</width>
-      <height>41</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -130,8 +172,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Helonia</family>
-      <pointsize>19</pointsize>
+      <family>8514oem</family>
+      <pointsize>55</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -139,8 +181,15 @@
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+color: #fe5811;
+}
+
+</string>
+    </property>
     <property name="text">
-     <string>P L A Y</string>
+     <string>P L A Y T R O N</string>
     </property>
     <property name="flat">
      <bool>false</bool>
@@ -154,6 +203,17 @@
       <width>491</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>8514oem</family>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>true</underline>
+      <strikeout>false</strikeout>
+     </font>
     </property>
     <property name="text">
      <string>(Hit SPACE at any time to stop)</string>
@@ -171,17 +231,22 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>8514oem</family>
+     </font>
+    </property>
     <property name="text">
-     <string>Quantize</string>
+     <string>QUANTIZE:</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="quantize_radio_button">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>130</y>
+      <x>150</x>
+      <y>140</y>
       <width>31</width>
-      <height>41</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="focusPolicy">
