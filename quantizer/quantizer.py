@@ -59,7 +59,7 @@ class Player():
 
         elif not self.quantize:
             while self.state:
-                self.play_unquantized(self.samples)
+                self.play_unquantized(self.samples) 
 
     def quit(self):
         while True:

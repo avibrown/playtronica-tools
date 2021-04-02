@@ -51,4 +51,4 @@ class Samples:
             return samples
 
         else:
-            return None # hello
+            return None
