@@ -1,11 +1,11 @@
-from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import * 
 from PyQt5.QtGui import *
 from PyQt5.Qt import Qt
-import keyboard
-import sys
 import quantizer
+import keyboard
 import time
+import sys
 
 # Class responsible for opening new threads for processes
 class Worker(QRunnable):

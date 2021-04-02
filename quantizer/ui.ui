@@ -183,6 +183,10 @@ color: #09369e;}</string>
 color: #fe5811;
 }
 
+QPushButton:disabled {
+background-color:#467685;
+}
+
 </string>
     </property>
     <property name="text">
