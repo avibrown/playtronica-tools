@@ -1,14 +1,16 @@
 import pygame.mixer as mixer
 import pygame.midi as midi
 import os
- 
+
+
 class Input:
     def get_input():
         playtron = None
         midi.init()
 
         # Parses available MIDI devices (input and output)
-        devices = [midi.get_device_info(device) for device in range(0, midi.get_count())]
+        devices = [midi.get_device_info(device)
+                   for device in range(0, midi.get_count())]
 
         # Locates the Playtronic input ID
         if len(devices) > 0:
@@ -17,13 +19,13 @@ class Input:
                 # Searching for Playtron's name and the INPUT connection
                 if b'Playtron' in device[1] and device[2] == 1:
                     playtron = midi.Input(devices.index(device))
-        
+
         if playtron:
             return playtron
-        
+
         else:
             raise ValueError('No Playtron device found connected.')
-            return playtron
+
 
 class Samples:
     def get_samples(sample_pack_path):
@@ -33,7 +35,7 @@ class Samples:
         if sample_pack_path:
             files = [file for file in os.listdir(sample_pack_path)]
 
-            # "Fluffs" sample pack to 16 files if there are too few
+            # "Plumps" sample pack to 16 files (repeats last file) if there are too few
             if not len(files) == 16:
                 last = files.index(files[-1])
                 for i in range(last + 1, 17):
