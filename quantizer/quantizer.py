@@ -1,13 +1,16 @@
-import playtronica_tools as pt
-import pygame.mixer as mixer
-import pygame.midi as midi
+import os
 import threading
+import time
+
 import keyboard
 import pygame
-import time
-import os
+import pygame.midi as midi
+import pygame.mixer as mixer
 
-class Player():
+import playtronica_tools as pt
+
+
+class Player:
     def __init__(self, quantize=True, sample_pack_path=None, metronome=True, tempo=60):
         self.state = True
         self.quantize = quantize
@@ -34,18 +37,18 @@ class Player():
             if signal[0][0][0] == 144:
                 for note in signal:
                     self.samples[note[0][1]].play()
-    
+
     def play_unquantized(self, samples):
-         if self.input.poll():
+        if self.input.poll():
             signal = self.input.read(1024)
             if signal[0][0][0] == 144:
                 for note in signal:
-                    self.samples[note[0][1]].play()    
+                    self.samples[note[0][1]].play()
 
     def session(self, metronome, tempo):
         self.state = True
         midi.init()
-        click = mixer.Sound('click.mp3')
+        click = mixer.Sound("click.mp3")
         count = 4
 
         if self.quantize:
@@ -59,11 +62,11 @@ class Player():
 
         elif not self.quantize:
             while self.state:
-                self.play_unquantized(self.samples) 
+                self.play_unquantized(self.samples)
 
     def quit(self):
         while True:
-            if keyboard.is_pressed('space'):
+            if keyboard.is_pressed("space"):
                 self.state = False
                 midi.quit()
             time.sleep(0.05)

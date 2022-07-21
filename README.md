@@ -4,17 +4,15 @@ I recieved the [Playtron](https://shop.playtronica.com/playtron) as a gift and q
 
 I decided to have a crack at building a simple tool for loading samples and playing within quantized guardrails.
 
-
-
 # Features to come
+
 I will be adding an option to quickly package audio files into a new sample pack.
-
-
 
 # Quantizer
 
 This class enables the user to apply (albeit rough) quantization to the signals received from their Playtronica "Playtron" device.
 The `Player` class receives the following arguments:
+
 ```
 tempo             # tempo in BPM (60 is passed by default)
 metronome         # Boolean value indicating whether to play a metronome click at the start of every measure (True by default)
@@ -29,14 +27,14 @@ Currently there is no support for specifying which connection will play a partic
 
 Hit space at any time to end session.
 
-
-
 # How to Use
 
 ## Check requirements
+
 This has been tested on Windows 10 and Mac OS 10.12.6 using [Python 3.9.2](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) but should work for other recent versions.
 
 As for modules, you will need:
+
 ```
 pygame
 keyboard
@@ -46,29 +44,43 @@ PyQt5
 Which can all be installed via `pip`.
 
 ## Download or clone this repository
+
 Either clone using Git or download `.zip` folder to your system.
 
 ## Run `main.py`
+
 Navigate to the host directory and run using `python main.py` (You can do this by opening command prompt and entering `python C:\path\to\host\directory\main.py`). You should see the interface below.
 
-NOTE that on Mac you may need to run as administrator using `sudo python3 main.py`
+~NOTE that on Mac you may need to run as administrator using `sudo python3 main.py`~
+
+Actually, running stuff with sudo is quite dangerous and an anti-pattern one should avoid.
+Check if you are a member of the `audio` group: `grep audio /etc/group` and if not, add your `USER` to it: `sudo adduser USER audio`.
+If you don't have an audio group, create one. [I found this random guide about linux/midi](http://www.tedfelix.com/linux/linux-midi.html#audio-group) through a 5-second search, and since that is equal to the amount of time I spent reading it, I don't want to (not) recommend it, just saying: it is out there, you'll manage. :)
+
+Then I can run `python3 ./main.py` without any issues on Linux.
+
 
 ![Interface](https://i.imgur.com/hSzlhde.png)
 
 ## Load Sample Pack
+
 Click the "SAMPLES" button and navigate to a folder with 16 audio files (that end with `.mp3` or `.wav`). At the moment it needs to be 16 files, but if you have fewer than that just copy and paste them until you have 16. Ha.
 
 ## Tempo
+
 Select your tempo in BPM.
 
 ## Options
+
 Quantize and Metronome are selected by default. If you are inclined to go unquantized, the metronome will also be turned off (at the moment).
 
 ## Play
+
 Hit PLAYTRON. When you're done be sure to hit 'space' confidently. :)
 
 The app itself is incomplete, but should be enough to get you going.
 Please contact me with any issues.
 
 # Demo Video
+
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/t6bMnLYBCv8/0.jpg)](https://www.youtube.com/watch?v=t6bMnLYBCv88)
