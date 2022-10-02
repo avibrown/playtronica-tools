@@ -51,14 +51,7 @@ Either clone using Git or download `.zip` folder to your system.
 
 Navigate to the host directory and run using `python main.py` (You can do this by opening command prompt and entering `python C:\path\to\host\directory\main.py`). You should see the interface below.
 
-~NOTE that on Mac you may need to run as administrator using `sudo python3 main.py`~
-
-Actually, running stuff with sudo is quite dangerous and an anti-pattern one should avoid.
-Check if you are a member of the `audio` group: `grep audio /etc/group` and if not, add your `USER` to it: `sudo adduser USER audio`.
-If you don't have an audio group, create one. [I found this random guide about linux/midi](http://www.tedfelix.com/linux/linux-midi.html#audio-group) through a 5-second search, and since that is equal to the amount of time I spent reading it, I don't want to (not) recommend it, just saying: it is out there, you'll manage. :)
-
-Then I can run `python3 ./main.py` without any issues on Linux.
-
+NOTE that on Mac you may need to run as administrator using `sudo python3 main.py`. A better idea would be to  check if you are a member of the `audio` group: `grep audio /etc/group` and if not, add your `USER` to it: `sudo adduser USER audio`.
 
 ![Interface](https://i.imgur.com/hSzlhde.png)
 
