@@ -5,7 +5,7 @@ import pygame.mixer as mixer
 
 
 class Input:
-    def get_input(self):
+    def get_input():
         playtron = None
         midi.init()
 
@@ -30,7 +30,7 @@ class Input:
 
 
 class Samples:
-    def get_samples(self, sample_pack_path):
+    def get_samples(sample_pack_path):
         mixer.init()
         samples = {}
 
